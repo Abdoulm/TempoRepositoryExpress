@@ -1,0 +1,144 @@
+ion-header{
+
+    position: absolute;
+  --ion-background-color:#EF9B1D;
+  
+  --background: linear-gradient(180deg, #EF9B1D , #EF9B1D );
+ // background: linear-gradient(90deg, var(--ion-color-tertiary) 0%, var(--ion-color-primary) 100%)
+  
+}
+
+ion-toolbar{
+    --background:transparent;
+    --opacity:0%;
+}
+
+.title {
+    margin-bottom: 30px;
+}
+
+.title h4 {
+    color: var(--ion-color-primary);
+}
+
+.title p {
+    margin-top: 0 !important;
+    color: #999999;
+    font-size: small;
+}
+
+.forget a {
+    font-size: small !important;
+}
+
+ion-content {
+
+
+ion-list {
+    height: 100%;
+    border-radius: 20px 20px 0 0;
+    p {
+        font-size: 0.8em;
+    }
+    ion-item {
+        border-radius: 20px;
+        ion-input {
+            font-size: 0.9em;
+        }
+    }
+    .fullName {
+        margin: 20px 0 10px 0;
+    }
+
+    .group {
+        background: var(--ion-color-light);
+        height: 100%;
+        ion-item {
+            -webkit-box-shadow: 0 6px 4px -1px var(--ion-color-medium);
+            -moz-box-shadow: 0 6px 4px -1px var(--ion-color-medium);
+            box-shadow: 0 6px 4px -1px var(--ion-color-medium);
+            ion-label {
+                font-weight: bold;
+                font-size: 1em;
+            }
+        }
+    }
+
+
+}
+
+ion-label{
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+    
+    
+    * {
+        font-family: lato;
+    }
+    .main-header {
+        height: 35vh;
+        width: 120%;
+        background: linear-gradient(90deg, #EF9B1D  0%, #EF9B1D  100%);
+        box-shadow: 0 1px 10px var(--ion-color-light);
+        border-radius: 0 0 50% 50%;
+        margin-left: -4.5vh;
+        margin-top: -5px;
+        div {
+            transform: translateY(2vh);
+            ion-avatar {
+                width: 15vh;
+                height: 15vh;
+                background: var(--ion-color-white);
+                margin-bottom: 25px;
+                border: 7px solid #0a1233;
+                margin-top: 15px;
+            }
+        }
+    }
+
+    ion-list{
+        div{
+            justify-content: center;
+            text-align: center;
+            ion-button{
+                width: 50px;
+                text-align: center;
+                color: brown;
+            }
+        }
+    }
+
+    ion-grid{
+        ion-row {
+            margin-top: -70px;
+            ion-col {
+                ion-item {
+                    height: 60%;
+                    margin: auto;
+                    border: 1px solid var(--ion-color-light);
+                    box-shadow: 1px var(--ion-color-dark);
+                    border-radius: 5px;
+                    ion-label {
+                        font-size: 1.8rem;
+                        font-weight: bold;
+                    }
+    
+                    ion-icon {
+                        font-size: 3rem;
+                    }
+                   
+                }
+            }
+        }
+    }
+
+
+ 
+    .error {
+        font-size: 0.75em;
+        margin-left: 1.5vh;
+    }
+  
+}

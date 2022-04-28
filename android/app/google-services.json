@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "437487063481",
+    "project_id": "express-market-57a5f",
+    "storage_bucket": "express-market-57a5f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:437487063481:android:0a715537f8a70113fb2668",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "437487063481-tvt6ns6kv9cburm5r95mp668mbb42bh0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVNaPJbgfyBkJyGqI1TG8Ad2XutxBOa3o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "437487063481-tvt6ns6kv9cburm5r95mp668mbb42bh0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

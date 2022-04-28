@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="primary" class="backbtn" routerLink="/home" routerDirection="back">
+        <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item lines="none" style="padding: 10px;" *ngFor="let command of commands">
+      <ion-thumbnail item-start>
+        <img src="{{command?.photo}}">
+      </ion-thumbnail>
+      <div class="ion-no-padding" style="margin-left: 5px; ">
+        <b>{{command?.nom}}</b>
+        <p style="margin: 0;">{{command?.total}}</p>
+      </div>
+      <ion-item slot="end" class="ion-no-padding">
+        <ion-label>reçu</ion-label>
+        <ion-checkbox color="primary"  [(ngModel)]="command.checked"  (ionChange)="validerReception(command?.id)" name="check" ></ion-checkbox>
+      </ion-item>
+
+    </ion-item>
+
+    <div *ngIf="!commandSize > 0 ">
+
+    <ion-item  lines="none" style="padding: 10px;" *ngFor="let item of [1,2,3,4,5]">
+          <ion-thumbnail item-start>
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-thumbnail>
+        <div class="ion-no-padding" style="margin-left: 5px; ">
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+        </div>
+        <ion-item slot="end" class="ion-no-padding">
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          <ion-checkbox color="primary" aria-checked="false" ></ion-checkbox>
+        </ion-item>
+    </ion-item>
+    </div>
+  </ion-list>
+
+
+  
+</ion-content>

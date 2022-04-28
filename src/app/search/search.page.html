@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-searchbar placeholder="Search..." #mainSearchbar (ionCancel)="onCanceled($event)" mode="ios"
+      class="some-class input" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)"
+      [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list>
+    <ion-item *ngFor="let articles of resultArr" (click)="redirectToDetail(articles.id)">
+      <!--*ngFor="let data of userRecords | filter:filterTerm" -->
+      <div >
+        <ion-thumbnail style="width: 80px; height: 80px;" item-start>
+          <img class="img" src="{{articles.photo}}">
+        </ion-thumbnail>
+      </div>
+
+      <div class="ion-no-padding" style="margin-left: 5px; margin-top: 0;">
+        <p style="margin-top: 0px;" class="description">{{articles.description}}</p>
+        <b >{{articles.price}} FCFA</b>
+      </div>
+
+
+    </ion-item>
+  </ion-list>
+</ion-content>

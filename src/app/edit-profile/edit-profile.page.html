@@ -1,0 +1,84 @@
+<ion-header class="ion-no-border" >
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="getBack()"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+   
+<ion-content [fullscreen]="true">
+
+  <ion-grid class="main-header">
+    <div align="center">
+      <ion-avatar>
+        <img src="../../assets/avatar (1).svg" />     
+      </ion-avatar>
+    </div>
+  </ion-grid>  
+
+
+    <ion-list line="none">
+    <ion-item-group class="ion-padding">
+        
+      <form [formGroup]="fireStoreData" (ngSubmit)=editProfile()>
+        <ion-item-group  class="fullName">
+          <ion-item  color="light">
+            <ion-label>nom:</ion-label>
+            <ion-input class="ion-margin-horizontal"  formControlName="fullName" required type="text"></ion-input>
+          </ion-item>
+          <ion-text class="error" color="danger" *ngIf="!fireStoreData.get('fullName').valid && !fireStoreData.get('fullName').touched">
+            entrez votre nom complet
+          </ion-text>
+        </ion-item-group>
+
+        <ion-item-group  class="fullName">
+          <ion-item  color="light">
+            <ion-label>email:</ion-label>
+            <ion-input class="ion-margin-horizontal" formControlName="email" required type="email"></ion-input>
+          </ion-item>
+          <ion-text class="error" color="danger" *ngIf="!fireStoreData.get('email').valid && !fireStoreData.get('email').touched">
+            entrez email valide
+          </ion-text>
+        </ion-item-group>
+
+        
+        <ion-item-group  class="fullName">
+          <ion-item  color="light">
+            <ion-label>tel:</ion-label>
+            <ion-input formControlName="telephone"  required type="text" ></ion-input>
+          </ion-item>
+          <ion-text class="error" color="danger" *ngIf="!fireStoreData.get('telephone').valid && !fireStoreData.get('telephone').touched">
+            entrez valide numero 
+          </ion-text>
+        </ion-item-group>
+  
+  
+        <ion-item-group  class="fullName">
+          <ion-item  color="light">
+            <ion-label>adresse:</ion-label>
+            <ion-input class="ion-margin-horizontal" formControlName="adresse"  required type="text"></ion-input>
+          </ion-item>
+          <ion-text class="error" color="danger" *ngIf="!fireStoreData.get('adresse').valid && !fireStoreData.get('adresse').touched">
+            entrez adresse 
+          </ion-text>
+        </ion-item-group>
+
+          
+        <ion-item-group  class="fullName">
+          <ion-item  color="light">
+            <ion-label>localité:</ion-label>
+            <ion-input class="ion-margin-horizontal" formControlName="localite"  required type="text"></ion-input>
+          </ion-item>
+          <ion-text class="error" color="danger" *ngIf="!fireStoreData.get('localite').valid && !fireStoreData.get('localite').touched">
+            entrez  localité 
+          </ion-text>
+        </ion-item-group>
+  
+        <ion-button expand="block" [disabled]="!fireStoreData?.valid" type="submit" class="ion-no-margin">Enregistrer</ion-button>
+
+      </form>
+      </ion-item-group>
+    </ion-list>
+
+</ion-content>
+

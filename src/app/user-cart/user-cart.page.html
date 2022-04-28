@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button
+        color="primary"
+        class="backbtn"
+        routerLink="/home"
+        routerDirection="back"
+      >
+        <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-label>Panier</ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <div class="cart-items">
+    <ion-list>
+      <ion-item-sliding *ngFor="let art of categories | async">
+
+        <ion-item lines="none">
+          <ion-card mode="ios">
+            <ion-card-content>
+              <div class="item-img">
+                <img
+                  src="{{art?.photo}}"
+                />
+              </div>
+  
+              <div class="item-info ">
+                <p>{{art?.nom}}</p>
+                <p>{{art?.price}} FCFA</p>
+  
+                <div class="qty-selector">
+                  <!-- <ion-button fill="clear" (click)="removeToCart(art?.id);$event.stopPropagation();">-</ion-button> -->
+                  <ion-button fill="clear" (click)="event.stopPropagation(); newdDecrementMethode(art?.id)">-</ion-button>
+                  <ion-label>{{art?.quantite}}</ion-label>
+                  <!-- <ion-button fill="clear" (click)="serviceAddMethode($event, art?.id);$event.stopPropagation();">+</ion-button> -->
+                  <ion-button fill="clear" (click)="newIncrementMethode(art?.id);$event.stopPropagation();">+</ion-button>
+                </div>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-item>
+        <ion-item-options>
+          <ion-button color="light" [routerLink]="">
+            <ion-icon name="create"></ion-icon>
+          </ion-button>
+          <ion-button color="danger" (click)="deletePanier(art.id)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </ion-item-options>
+      </ion-item-sliding>
+    
+    </ion-list>
+  </div>
+  
+</ion-content>
+<ion-footer translucent="true" class="ion-no-border" mode="md">
+ <ion-item class="ion-no-padding">
+  <span>Total <b>1000 FCFA</b></span>
+  <!-- <span>Total <b>50.000 FCFA</b></span> -->
+ </ion-item>
+    
+
+  <ion-toolbar color="translucent">
+    <ion-button
+      expand="block"
+      class="main-button"
+      routerLink="/payement"
+      routerDirection="forward"
+      >Continue</ion-button
+    >
+
+  </ion-toolbar>
+</ion-footer>

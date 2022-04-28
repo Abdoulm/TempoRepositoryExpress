@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="primary" class="backbtn" routerLink="/user-cart" routerDirection="back">
+        <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="flex ion-text-center">
+    <ion-card (click)="confirm()">
+
+        <img src="../../assets/images.jpg" />
+    </ion-card>
+
+    <ion-card  (click)="payWithOrange()">
+      <img src="../../assets/orangeMoney.jpg" />
+    </ion-card>
+  </div>
+
+
+  <ion-footer translucent="true" class="ion-no-border" mode="md">
+    <ion-item class="ion-no-padding">
+     <span>Total <b>1000 FCFA</b></span>
+    </ion-item>
+  </ion-footer>
+</ion-content>

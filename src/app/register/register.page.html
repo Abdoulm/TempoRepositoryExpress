@@ -1,0 +1,43 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content class="ion-padding ">
+  <div id="sign-in-button"></div>
+  <img src="../../assets/LOGO_EXPRESS_MARKET" class="logo" />
+
+
+  <div class="title">
+    <h4 class="ion-text-center">s'inscrire</h4>
+  </div>
+  <ion-select [(ngModel)]="CountryCode" name="CountryCode" class="phoneCountry" value="brown" okText="Okay" cancelText="Dismiss"
+    (ionChange)="countryCodeChange($event)" [value]="CountryCode">
+    <ion-select-option *ngFor="let country of countryJson" value={{country.dial_code}}>
+      {{country.dial_code + ' ' + country.name}}</ion-select-option>
+  </ion-select>
+    <ion-input placeholder="numero de telephone" name="phoneNo" [(ngModel)]="phoneNo"
+    class="input ion-padding-horizontal" clear-input="true" ></ion-input>
+
+  <ion-input (ionFocus)="onKeyboardStateChange(true)" (ionBlur)="onKeyboardStateChange(false)" placeholder="mot de passe" name="password" [(ngModel)]="password" type="password" class="primary-input"></ion-input>
+
+  <p>En vous inscrivant, vous acceptez nos termes et conditions</p>
+
+  <div class="ion-margin-top">
+    <ion-button expand="block" (click)="signinWithPone()">S'INSCRIRE</ion-button>
+  </div>
+
+  <div class="ion-margin-top ion-text-center">
+    <a (click)="dismiss()">Close</a>
+  </div>
+
+  <div class="social-btns">
+    <ion-button fill="clear"  color="danger"  class="facebookbtn ion-no-padding">
+  <ion-img src="../../assets/facebook.png"></ion-img>
+    </ion-button>
+    <ion-button fill="clear" (click)="loginGoogle()" class="googlebtn ion-no-padding">
+  <ion-img src="../../assets/google.png"></ion-img>
+    </ion-button>
+  </div>
+
+  
+</ion-content>

@@ -1,0 +1,126 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons  slot="start">
+      <!-- <ion-button (click)="getBack()" routerDirection="back"> -->
+        <ion-icon (click)="getBack()" routerDirection="back" slot="start" name="arrow-back-outline"></ion-icon>
+      <!-- </ion-button> -->
+    </ion-buttons>
+
+    <ion-buttons>
+      <ion-button>
+        <ion-icon slot="icon-only" color="light" name="heart-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+        <!-- <ion-icon class="retour" slot="start" name="arrow-back-outline"></ion-icon> -->
+     
+  <ion-slides  pager="true" class="product-slider">
+    <ion-slide   *ngFor="let item of ListePhoto">
+      
+      <img src="{{item}}" id="pPhoto">
+    </ion-slide>
+  </ion-slides>
+  <!-- likes -->
+<div class="like">
+<span class="ion-margin ion-align-items-baseline">
+  <ion-icon *ngIf="isLiked" (click)="addLike(id_article)" slot="end" color="danger" name="heart"></ion-icon>
+  <ion-icon *ngIf="!isLiked" (click)="addLike(id_article)" slot="end" name="heart-outline"></ion-icon>
+  <!-- <ion-item slot="end">
+    <ion-checkbox #animatedIcon class="ion-margin" (click)="addLike(id_article)" class="custom-mark-heart" (ionChange)="animate()" mode="ios">
+    </ion-checkbox>
+    <label for="like">{{likesCount}}</label>
+  </ion-item> -->
+  <label for="like">{{likesCount}}</label>
+</span>
+</div>
+  <!-- fin likes -->
+
+  <div class="ion-padding-vertical">
+    <h3 class="article-name">{{itemName}}</h3>
+  </div>
+
+  <div class="separator">
+    <hr>
+
+  </div>
+
+  <div class="review">
+    <ion-row>
+      <ion-col size="6">
+        <h5 class="price">
+          {{itemPrice}} FCFA
+        </h5>
+    </ion-col>
+      <ion-col size="6">
+        <div class="count">
+        <del>
+          <span class="real-price">{{itemPromo}}</span>
+        </del>
+        </div>
+        <ion-icon name="cart" slot="start"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div class="separator">
+    <hr>
+  </div>
+
+  <div class="description">
+    <h5>Description</h5>
+    <p>{{itemDesc}}</p>
+  </div>
+
+  <div class="separator">
+    <hr>
+  </div>
+  <div class="variation">
+    <ion-segment (ionChange)="segmentChanged($event)" value="size">
+      <ion-segment-button value="size">
+        <ion-label> Taille </ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="color">
+        <ion-label>Couleur</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div class="separator">
+    <hr>
+  </div>
+
+  <div class="variation-selector">
+    <div class="sizes" [class.active-variation]="activeVariation == 'size'">
+      <div *ngFor="let taille of size | keyvalue" [class.active]="selectedSize == taille.key" (click)="changeSize(taille.key)" >
+        {{taille.value}}
+      </div>
+    </div>
+
+    <div class="colors" [class.active-variation]="activeVariation == 'color'">
+      <div *ngFor="let couleur of color | keyvalue" [class.active]="selectedColor == couleur.key" (click)="changeColor(couleur.key)">
+        {{couleur.value}}
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+
+<ion-footer>
+  <ion-row>
+    <ion-col size="6">
+      <ion-button (click)="addItemToCart()" expand="full" color="light">
+        <ion-icon slot="start" name="cart-outline"></ion-icon>
+         panier
+      </ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button (click)="directBuy(id_article)" expand="full" >
+        <ion-icon slot="start" name="pricetag-outline"></ion-icon>
+        Acheter 
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

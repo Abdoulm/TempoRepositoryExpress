@@ -1,0 +1,63 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay" [disabled]="!isMenuEnabled">
+      <ion-content>
+        <div class="main-list">
+          <ion-list id="inbox-list">
+            <img src="../../assets/LOGO_EXPRESS_MARKET"/>
+
+
+            <ion-menu-toggle auto-hide="false">
+              <ion-item lines="none" (click)="navigate('/folder, 1')" detail="false"  [class.selected]="selectedIndex == 1">
+                <ion-label>Home</ion-label>
+                <ion-icon name="home-outline" slot="start"></ion-icon>
+              </ion-item>
+            </ion-menu-toggle>
+
+            <ion-menu-toggle auto-hide="false">
+              <ion-item lines="none" (click)="giveAccess()" detail="false"  [class.selected]="selectedIndex == 2">
+                <ion-label>Panier</ion-label>
+                <ion-icon name="cart-outline" slot="start"></ion-icon>
+              </ion-item>
+            </ion-menu-toggle>
+
+            <ion-menu-toggle auto-hide="false">
+              <ion-item lines="none" (click)="giveAccessCommande()" detail="false"  [class.selected]="selectedIndex == 3">
+                <ion-label>Commande</ion-label>
+                <ion-icon name="cube-outline" slot="start"></ion-icon>
+              </ion-item>
+            </ion-menu-toggle>
+
+            <ion-menu-toggle auto-hide="false">
+              <ion-item lines="none" routerLink="profile" detail="false"  [class.selected]="selectedIndex == 4">
+                <ion-label>Profile</ion-label>
+                <ion-icon name="person-outline" slot="start"></ion-icon>
+              </ion-item>
+            </ion-menu-toggle>
+
+            <ion-menu-toggle auto-hide="false">
+              <ion-item lines="none" *ngIf="userdata" (click)="logout()" detail="false"  [class.selected]="selectedIndex == 4">
+                <ion-label>Deconnexion</ion-label>
+                <ion-icon name="exit-outline" slot="start"></ion-icon>
+              </ion-item>
+
+              <ion-item lines="none" *ngIf="!userdata" (click)="connection()" detail="false"  [class.selected]="selectedIndex == 4">
+                <ion-label>Connexion</ion-label>
+                <ion-icon name="exit-outline" slot="start"></ion-icon>
+              </ion-item>
+            </ion-menu-toggle>
+
+          </ion-list>
+
+          <ion-button fill="clear" color="dark" (click)="close()">
+            <ion-icon name="close-circle-outline"></ion-icon>
+            
+          </ion-button>
+        </div>
+
+
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

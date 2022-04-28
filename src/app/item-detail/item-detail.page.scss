@@ -1,0 +1,217 @@
+ion-header{
+    position: absolute;
+
+    ion-toolbar{
+
+        --background: transparent;
+        --opacity:0%;
+    }
+}
+
+.article-name{
+    color: #2a2a2a;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-size: 20px;
+    margin: 0;
+}
+
+.price{
+    color: #F5576C;
+    span{
+        color: #2a2a2a;
+        text-decoration: line-through;
+        margin-left: 20px;
+        font-size: medium;
+        vertical-align: top;
+
+    }
+}
+.separator{
+    hr{
+        position: absolute;
+        left: 0;
+        width: 100%;
+        background: #e2e2e2;
+    }
+}
+
+.review{
+    margin-top: 16px;
+    color: #2a2a2a;
+
+    .rating{
+        display: inline-block;
+        color: #ffffff;
+        background: var(--ion-color-primary);
+        padding: 10px 20px 10px 20px;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    .count{
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        color: var(--ion-color-primary);
+    }
+}
+
+.description{
+    h5{
+        color: #2a2a2a;
+        padding-top: 10px;
+
+    }
+    p{
+        font-family: 'Roboto';
+        font-style: normal;
+        font-size: 14px;
+        line-height: 16px;
+
+        color: #283148;
+    }
+}
+
+
+.variation {
+    padding-top: 16px;
+
+    ion-segment-button {
+        color: #2a2a2a;
+    }
+}
+
+.variation-selector {
+    margin-top: 30px;
+    display: flex;
+    position: relative;
+
+    .active-variation {
+        opacity: 1 !important;
+        z-index: 1 !important;
+    }
+
+    .sizes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+        z-index: 0;
+        padding-bottom: 30px;
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f3f3f3;
+            width: 50px;
+            height: 50px;
+            margin-right: 8px;
+            transition: 0.5s ease-in-out;
+        }
+
+        .active {
+            color: #ffffff;
+            background-color: var(--ion-color-primary);
+        }
+    }
+
+    .colors {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+        z-index: 0;
+        padding-bottom: 30px;
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f3f3f3;
+            width: 70px;
+            height: 50px;
+            margin-right: 8px;
+            transition: 0.5s ease-in-out;
+        }
+
+        .active {
+            color: #ffffff;
+            background-color: var(--ion-color-primary);
+        }
+    }
+}
+
+
+ion-footer {
+    ion-row {
+        padding: 0;
+
+        ion-col {
+            padding: 0;
+
+            ion-button {
+                margin: 0;
+                height: 50px;
+                font-size: 18px;
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+// This will remove footer shadow on android
+.footer-md::before {
+    background-image: none !important;
+}
+
+// likes
+.like{
+    margin-top: 10px;
+    text-align: right;
+    span{
+
+        font-size: 25px;
+        ion-icon{
+            margin-right: 15px;
+        text-align: center;
+        }
+        
+    }
+    label{
+        font-size: 25px;
+            text-align: center;
+           
+        }
+
+    
+}
+.custom-mark-heart {
+    --checkmark-color: var(--ion-color-danger);
+    --checkmark-width: 2px;
+    --background: transparent;
+    --border-color: transparent;
+    --background-checked: transparent;
+    --border-color-checked: transparent;
+    --size: 28px;
+  
+    &::part(mark) {
+      // this is the svg of the checkbox icon
+      // heart icon
+      d: path("M12 21L11.5782 20.7188C9.57284 19.3795 7.0355 17.8659 5.15628 15.6412C3.17581 13.2975 2.22565 10.8905 2.25003 8.28187C2.27956 5.36906 4.61534 3 7.4569 3C9.71206 3 11.2116 4.3125 12 5.25984C12.7885 4.3125 14.288 3 16.5432 3C19.3847 3 21.7205 5.36906 21.75 8.28047C21.7763 10.8905 20.8261 13.2961 18.8438 15.6398C16.9646 17.8659 14.4272 19.3795 12.4219 20.7188L12 21Z");
+    }
+  
+    &.checkbox-checked::part(mark) {
+      fill: var(--ion-color-danger);
+    }
+  
+    &::part(mark) {
+      opacity: 1;
+    }
+  }

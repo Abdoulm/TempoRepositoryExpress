@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="primary" class="backbtn" routerLink="/home" routerDirection="back">
+        <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides [options]="catSlideOpts">
+    <ion-slide *ngFor="let cat of categories | async">
+      <ion-button (click)="callBack(cat.nom, cat.id)" fill="clear">{{cat.nom}}</ion-button>
+    </ion-slide>
+  </ion-slides>
+
+
+  <ion-row >
+    <ion-col size="6"  *ngFor="let article of subcategories" routerLink="/item-detail/{{article.id}}" >
+      <ion-card class="card-custom">
+        <div class="card-thumbnail" [style.backgroundImage]="'url('+ article.photo +')'">
+
+          <div class="card-caption">
+            {{article.nom}}
+          </div>
+        </div>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <!-- <ion-grid class="grid">
+    <ion-row >
+      <ion-col size="6"  *ngFor="let article of subcategories" routerLink="/item-detail/{{article.id}}" >
+
+        <div class="overlay myCard">
+          <img src="{{article.photo}}">
+          <p class="category-name card-title text-over-img">{{article.nom}}</p>
+        </div>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+</ion-content>
+
+
+<!-- <ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-row>
+      <ion-col size="6" class="ion-text-center buy">
+        <ion-button fill="clear" color="light">Buy Now</ion-button>
+      </ion-col>
+      <ion-col size="6" class="ion-text-center">
+        <ion-button fill="clear" color="dark">Description</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer> -->

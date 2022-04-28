@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="primary" class="backbtn" routerLink="/home" routerDirection="back">
+        <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content>
+  <ion-row >
+    <ion-col size="6" *ngFor="let article of bestSelles" routerLink="/item-detail/{{article.id}}">
+      <ion-card class="myCard">
+        <img src="{{article.photo}}"/>
+        <div class="card-title">{{article.nom}}</div>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content> -->
+
+<ion-content [fullscreen]="true">
+
+  <ion-list>
+    <ion-item *ngFor="let article of bestSelles" routerLink="/item-detail/{{article.id}}">
+      <!--*ngFor="let data of userRecords | filter:filterTerm" -->
+      <div >
+        <ion-thumbnail style="width: 80px; height: 80px;" item-start>
+          <img class="img" src="{{article.photo}}">
+        </ion-thumbnail>
+      </div>
+
+      <div class="ion-no-padding" style="margin-left: 5px; margin-top: 0;">
+        <p style="margin-top: 0px;" class="description">{{article.description}}</p>
+        <b >{{article.price}} FCFA</b>
+      </div>
+
+
+    </ion-item>
+  </ion-list>
+</ion-content>
